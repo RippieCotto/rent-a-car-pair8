@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Pair8Application {
 
+	// Https deneme
 	public static void main(String[] args) {
 		SpringApplication.run(Pair8Application.class, args);
 	}
