@@ -9,7 +9,6 @@ import java.time.LocalDate;
 @Entity
 @Data
 public class Invoice {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
