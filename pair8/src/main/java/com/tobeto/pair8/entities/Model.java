@@ -3,6 +3,8 @@ package com.tobeto.pair8.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "models")
@@ -13,6 +15,10 @@ public class Model {
     private  int id;
 
     @ManyToOne
-    @JoinColumn(name = "brands")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
+
+   @OneToMany(mappedBy = "model")
+    private List<Car> cars;
+
 }

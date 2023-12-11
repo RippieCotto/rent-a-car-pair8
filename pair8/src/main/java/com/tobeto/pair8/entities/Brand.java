@@ -20,6 +20,5 @@ public class Brand {
     @OneToMany(mappedBy = "brand")
     private List<Model> models;
 
-    @OneToMany(mappedBy = "brand")
-    private List<Car> cars;
+
 }

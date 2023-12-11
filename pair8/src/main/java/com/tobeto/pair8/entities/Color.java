@@ -18,5 +18,5 @@ public class Color {
     private String name;
 
     @OneToMany(mappedBy = "color")
-    private List<Car> colors;
+   private List<Car> cars;
 }

@@ -3,6 +3,8 @@ package com.tobeto.pair8.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "cars")
@@ -24,11 +26,14 @@ public class Car {
     @Column(name = "daily_price")
     private Double dailyPrice;
 
-    @ManyToOne
-    @JoinColumn(name = "brand_id")
-    private Brand brand;
+     @ManyToOne
+     @JoinColumn(name = "model_id")
+     private Model model;
 
     @ManyToOne
-    @JoinColumn(name = "color_id")
+   @JoinColumn(name = "color_id")
     private Color color;
+
+    @OneToMany(mappedBy = "car")
+    private List<Rental> rentals;
 }
