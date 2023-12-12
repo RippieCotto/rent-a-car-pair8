@@ -9,10 +9,10 @@ Pair 8 Project for Rent-a-Car
 
 ## Project Description
 Bu proje, Rent-a-Car uygulaması için Pair 8 ekibi tarafından geliştirilmektedir.
-
--
--  ___
--_-_-  _/\______\__
---_-__  / ,-. -|-  ,-.`-.
--hjw _-_- `( o )----( o )-'
--
+*
+* -
+* -  ___
+* -_-_-  _/\______\__
+* --_-__  / ,-. -|-  ,-.`-.
+* -hjw _-_- `( o )----( o )-'
+* -
