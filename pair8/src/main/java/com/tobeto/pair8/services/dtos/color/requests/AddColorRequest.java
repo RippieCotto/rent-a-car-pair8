@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class AddColorRequest {
-    @NotBlank
+    @NotBlank(message = "Renk alanı boş olamaz!!!")
     private String name;
 }

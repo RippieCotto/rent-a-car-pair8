@@ -2,12 +2,16 @@ package com.tobeto.pair8.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "colors")
 @Data
+@Getter
+@Setter
 public class Color {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +22,5 @@ public class Color {
     private String name;
 
     @OneToMany(mappedBy = "color")
-   private List<Car> cars;
+    private List<Car> cars;
 }

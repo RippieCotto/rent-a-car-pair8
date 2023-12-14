@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class AddBrandRequest {
-    @NotBlank
+    @NotBlank(message = "Marka alanı boş olamaz!!!")
     private String name;
 }

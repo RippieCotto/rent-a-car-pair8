@@ -1,5 +1,6 @@
 package com.tobeto.pair8.services.concretes;
 
+import com.tobeto.pair8.core.utilities.mappers.ModelMapperService;
 import com.tobeto.pair8.entities.Color;
 import com.tobeto.pair8.repositories.ColorRepository;
 import com.tobeto.pair8.services.abstracts.ColorService;
@@ -12,14 +13,13 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class ColorManager implements ColorService {
-    private ColorRepository colorRepository;
+    private final ColorRepository colorRepository;
+    private final ModelMapperService modelMapperService;
     @Override
     public void add(AddColorRequest addColorRequest) {
-        Color color = new Color();
-        color.setName(addColorRequest.getName());
+        Color color = this.modelMapperService.forRequest().map(addColorRequest, Color.class);
         colorRepository.save(color);
     }
-
     @Override
     public void update(UpdateColorRequest updateColorRequest) {
 

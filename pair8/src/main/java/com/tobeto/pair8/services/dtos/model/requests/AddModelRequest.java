@@ -1,5 +1,6 @@
 package com.tobeto.pair8.services.dtos.model.requests;
 
+import com.tobeto.pair8.services.dtos.brand.responses.GetListBrandResponse;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

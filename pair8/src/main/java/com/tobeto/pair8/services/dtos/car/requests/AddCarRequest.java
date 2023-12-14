@@ -1,5 +1,8 @@
 package com.tobeto.pair8.services.dtos.car.requests;
 
+import com.tobeto.pair8.services.dtos.brand.responses.GetListBrandResponse;
+import com.tobeto.pair8.services.dtos.color.resposes.GetListColorResponse;
+import com.tobeto.pair8.services.dtos.model.responses.GetListModelRespose;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,13 +18,16 @@ public class AddCarRequest {
 
     @Pattern(regexp = "^(\\d{1,2}\\s?[A-Z]{1,3}\\s?\\d{1,4})?$", message = "Geçersiz plaka formatı")
     private String plate;
+
+    public void setPlate(String plate) {
+        this.plate = plate != null ? plate.replaceAll("\\s", "") : null;
+    }
+
     @Min(value = 2005, message = "Model yılı en az 2005 olabilir.")
     @Max(value = 2024, message = "Model yılı 2024'ten büyük olmaz")
     private int year;
     @Positive(message ="Günlük Ücret için geçerli bir değer giriniz!")
     private double dailyPrice;
-   @Positive
-   private int modelId;
-   @Positive
-   private int colorId;
+    private int modelId;
+    private int colorId;
 }

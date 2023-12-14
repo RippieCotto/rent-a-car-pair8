@@ -1,5 +1,6 @@
 package com.tobeto.pair8.services.concretes;
 
+import com.tobeto.pair8.core.utilities.mappers.ModelMapperService;
 import com.tobeto.pair8.entities.Brand;
 import com.tobeto.pair8.entities.Model;
 import com.tobeto.pair8.repositories.ModelRepository;
@@ -18,13 +19,11 @@ import org.springframework.stereotype.Service;
 public class ModelManager implements ModelService {
     private ModelRepository modelRepository;
     private final BrandService brandService;
+    private final ModelMapperService modelMapperService;
 
     @Override
     public void add(AddModelRequest addModelRequest) {
-        Model model = new Model();
-        model.setName(addModelRequest.getName());
-        Brand brand = brandService.getById(addModelRequest.getBrandId());
-        model.setBrand(brand);
+        Model model = this.modelMapperService.forRequest().map(addModelRequest, Model.class);
         modelRepository.save(model);
     }
 

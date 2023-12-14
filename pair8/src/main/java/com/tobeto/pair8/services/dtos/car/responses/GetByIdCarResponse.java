@@ -1,6 +1,5 @@
 package com.tobeto.pair8.services.dtos.car.responses;
 
-import com.tobeto.pair8.services.dtos.brand.responses.GetListBrandResponse;
 import com.tobeto.pair8.services.dtos.color.resposes.GetListColorResponse;
 import com.tobeto.pair8.services.dtos.model.responses.GetListModelRespose;
 import lombok.AllArgsConstructor;
@@ -10,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetListCarResponse {
+public class GetByIdCarResponse {
     private int kilometer;
-    private String Plate;
-    private int year;
+    private String plate;
     private double dailyPrice;
-    private GetListModelRespose getListModelRespose;
-    private GetListColorResponse getListColorResponse;
+
+    private GetListModelRespose model;
+    private GetListColorResponse color;
 }

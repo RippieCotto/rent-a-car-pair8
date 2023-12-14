@@ -1,7 +1,9 @@
 package com.tobeto.pair8.services.concretes;
 
+import com.tobeto.pair8.core.utilities.mappers.ModelMapperService;
 import com.tobeto.pair8.entities.Brand;
 import com.tobeto.pair8.repositories.BrandRepository;
+import com.tobeto.pair8.repositories.ModelRepository;
 import com.tobeto.pair8.services.abstracts.BrandService;
 import com.tobeto.pair8.services.dtos.brand.requests.AddBrandRequest;
 import com.tobeto.pair8.services.dtos.brand.requests.DeleteBrandRequest;
@@ -14,10 +16,10 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class BrandManager implements BrandService {
     private final BrandRepository brandRepository;
+    private ModelMapperService modelMapperService;
     @Override
     public void add(AddBrandRequest addBrandRequest) {
-        Brand brand = new Brand();
-        brand.setName(addBrandRequest.getName());
+        Brand brand = this.modelMapperService.forRequest().map(addBrandRequest, Brand.class);
         brandRepository.save(brand);
     }
 
