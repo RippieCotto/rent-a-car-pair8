@@ -25,15 +25,20 @@ public class BrandManager implements BrandService {
 
     @Override
     public void update(UpdateBrandRequest updateBrandRequest) {
+        Brand brandToUpdate = brandRepository.findById(updateBrandRequest.getId())
+                .orElseThrow();
+
+        this.modelMapperService.forRequest().map(updateBrandRequest,brandToUpdate);
+
+        brandRepository.saveAndFlush(brandToUpdate);
     }
 
     @Override
     public void delete(DeleteBrandRequest deleteBrandRequest) {
+        Brand brandToDelete = modelMapperService.forRequest().map(deleteBrandRequest,Brand.class);
+        brandRepository.save(brandToDelete);
 
     }
 
-    @Override
-    public Brand getById(int brandId) {
-        return brandRepository.findById(brandId).orElseThrow();
-    }
+
 }

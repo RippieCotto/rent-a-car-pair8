@@ -1,5 +1,6 @@
 package com.tobeto.pair8.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class Model {
     private Brand brand;
 
    @OneToMany(mappedBy = "model")
+   @JsonIgnore
     private List<Car> cars;
 
 }

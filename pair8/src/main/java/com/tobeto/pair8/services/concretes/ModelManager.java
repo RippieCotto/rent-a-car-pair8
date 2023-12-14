@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ModelManager implements ModelService {
     private ModelRepository modelRepository;
-    private final BrandService brandService;
     private final ModelMapperService modelMapperService;
 
     @Override
@@ -29,16 +28,19 @@ public class ModelManager implements ModelService {
 
     @Override
     public void update(UpdateModelRequest updateModelRequest) {
+      Model modelToUpdate = modelRepository.findById(updateModelRequest.getId()).orElseThrow();
 
+      this.modelMapperService.forRequest().map(updateModelRequest,modelToUpdate);
+
+      modelRepository.saveAndFlush(modelToUpdate);
     }
 
     @Override
     public void delete(DeleteModelRequest deleteModelRequest) {
+        Model modelToDelete= modelRepository.findById(deleteModelRequest.getId()).orElseThrow();
+        modelRepository.delete(modelToDelete);
 
     }
 
-    @Override
-    public Model getById(int modelId) {
-        return modelRepository.findById(modelId).orElseThrow();
-    }
+
 }

@@ -22,16 +22,20 @@ public class ColorManager implements ColorService {
     }
     @Override
     public void update(UpdateColorRequest updateColorRequest) {
+     Color colorToUpate =colorRepository.findById(updateColorRequest.getId()).orElseThrow();
+
+     this.modelMapperService.forRequest().map(updateColorRequest,colorToUpate);
+     colorRepository.saveAndFlush(colorToUpate);
 
     }
 
     @Override
     public void delete(DeleteColorRequest deleteColorRequest) {
+        Color colorToDelete = colorRepository.findById(deleteColorRequest.getId()).orElseThrow();
+        colorRepository.delete(colorToDelete);
+
 
     }
 
-    @Override
-    public Color getById(int colorId) {
-        return colorRepository.findById(colorId).orElseThrow();
-    }
+
 }

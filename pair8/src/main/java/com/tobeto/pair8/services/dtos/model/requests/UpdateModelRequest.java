@@ -1,5 +1,6 @@
 package com.tobeto.pair8.services.dtos.model.requests;
 
+import com.tobeto.pair8.services.dtos.brand.responses.GetAllListBrandResponse;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -10,6 +11,6 @@ public class UpdateModelRequest {
     private int id;
    @NotBlank(message = "isim boş olamaz")
     private String name;
-   @NotNull(message = "brand id null olamaz")
-    private int brandId;
+
+    private GetAllListBrandResponse brandResponse;
 }

@@ -1,5 +1,6 @@
 package com.tobeto.pair8.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -43,5 +44,6 @@ public class Rental {
     private User user;
 
     @OneToMany(mappedBy = "rental")
+    @JsonIgnore
     private List<Invoice> invoices;
 }

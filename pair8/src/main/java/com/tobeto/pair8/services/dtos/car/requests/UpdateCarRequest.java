@@ -1,8 +1,5 @@
 package com.tobeto.pair8.services.dtos.car.requests;
 
-import com.tobeto.pair8.services.dtos.brand.responses.GetListBrandResponse;
-import com.tobeto.pair8.services.dtos.color.resposes.GetListColorResponse;
-import com.tobeto.pair8.services.dtos.model.responses.GetListModelRespose;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
@@ -24,6 +21,9 @@ public class UpdateCarRequest {
     private int year;
     @Positive(message ="Günlük Ücret için geçerli bir değer giriniz!")
     private double dailyPrice;
-    private GetListModelRespose getListModelRespose;
-    private GetListColorResponse getListColorResponse;
+    @Positive(message = "Lütfen geçerli bir id giriniz!!!")
+    private int modelId;
+    @Positive(message = "Lütfen geçerli bir id giriniz!!!!")
+    private int colorId;
 }
+

@@ -11,5 +11,5 @@ public interface ColorService {
     void update(UpdateColorRequest updateColorRequest);
     void delete(DeleteColorRequest deleteColorRequest);
 
-    Color getById(int colorId);
+
 }

@@ -10,5 +10,5 @@ public interface ModelService {
     void update(UpdateModelRequest updateModelRequest);
     void delete(DeleteModelRequest deleteModelRequest);
 
-    Model getById(int modelId);
+
 }
